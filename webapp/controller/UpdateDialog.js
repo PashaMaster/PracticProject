@@ -47,12 +47,10 @@ sap.ui.define([
                Model : phone.getProperty("/Model"),
                Operating_system : phone.getProperty("/Operating_system"),
                Version : phone.getProperty("/Version"),
-               Color : phone.getProperty("/Color"),
+               Colors : phone.getProperty("/Colors"),
                Price: phone.getProperty("/Price")   
    			};
 
-
-   			
 			oModel.setProperty("/Phones/"+index[2], updatedPhone);
 
 			this._getDialog().close();

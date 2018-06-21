@@ -31,7 +31,7 @@ sap.ui.define([
                Model : null,
                Operating_system : null,
                Version : null,
-               Color : null,
+               Colors : null,
                Price: null   
    			});
 
@@ -41,7 +41,7 @@ sap.ui.define([
 
 		},
 
-		onCloseDialog : function () {
+		onCloseDialogOk : function () {
 
 			var oModel = thisView.getModel("phone");
          
@@ -53,13 +53,18 @@ sap.ui.define([
                Model : newPhone.getProperty("/Model"),
                Operating_system : newPhone.getProperty("/Operating_system"),
                Version : newPhone.getProperty("/Version"),
-               Color : newPhone.getProperty("/Color"),
+               Colors : newPhone.getProperty("/Colors"),
                Price: newPhone.getProperty("/Price")   
    			};
 
          	aPhone.push(createdPhone);
 
          	oModel.setProperty("/Phones", aPhone);
+
+			this._getDialog().close();
+		},
+
+		onCloseDialogCancel : function () {
 
 			this._getDialog().close();
 		}

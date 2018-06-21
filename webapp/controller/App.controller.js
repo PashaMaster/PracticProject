@@ -97,7 +97,7 @@ sap.ui.define([
 
       onSelected : function(oEvent) {
 
-         var sPath=oEvent.getSource().getParent().getBindingContext("phone").sPath;
+         var sPath=oEvent.getSource().getBindingContext("phone").sPath;
          var selectedPhone = this.getView().getModel("phone").getProperty(sPath);
          this.getView().setModel(new JSONModel(selectedPhone), "selectedPhone");
       }

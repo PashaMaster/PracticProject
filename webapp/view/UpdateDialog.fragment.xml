@@ -42,17 +42,25 @@
             class="label"
             text = "Price:"/>
          <Input
+               type="Number"
                value="{upPhone>/Price}"
                valueLiveUpdate="true"
                width="50%"/>
       </content>      
       <beginButton>
          <Button
-            icon="sap-icon://accept"
+            icon="sap-icon://synchronize"
             type="Accept"
-            text="{i18n>dialogCloseButtonText}"
+            text="{i18n>dialogUpdateOk}"
             press="onUpdateAndCloseDialog"/>
          
       </beginButton>
+      <endButton>
+         <Button
+            icon="sap-icon://cancel"
+            type="Accept"
+            text="{i18n>dialogUpdateCancel}"
+            press="onCloseDialog"/>         
+      </endButton>
    </Dialog>
 </core:FragmentDefinition>

@@ -16,9 +16,8 @@
                   <Title text="{i18n>phoneTableTitle}" level="H2"/>
                   <ToolbarSpacer/>
                   <Button 
-                        press="onCreate"
-                        icon="sap-icon://add"
-                        />
+                     press="onCreate"
+                     icon="sap-icon://add"/>
                </Toolbar>
             </headerToolbar>
             <columns>
@@ -46,7 +45,9 @@
                </Column>
             </columns>
             <items>
-               <ColumnListItem>
+               <ColumnListItem
+                  type="Navigation"
+                  press="onSelected">
                   <cells>
                      <ObjectIdentifier
                         title="{phone>Mark}"
@@ -65,7 +66,7 @@
                         press="onUpdate" 
                         icon="sap-icon://edit"/>
                      <Button 
-                        press="onSelected"
+                        press="onDelete"
                         icon="sap-icon://delete" />
                   </cells>
                </ColumnListItem>
