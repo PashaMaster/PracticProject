@@ -4,7 +4,9 @@ sap.ui.define([
 ], function (Object, JSONModel) {
 	
 	"use strict";
-
+	var upPhone;
+	var thisView;
+	var index;
 	return Object.extend("sap.ui.iba.practic.controller.UpdateDialog", {
 		_getDialog : function () {
 			
@@ -20,21 +22,45 @@ sap.ui.define([
 			
 			oView.addDependent(oDialog);
 			
-						
-			oDialog.open();			
+			upPhone = oView.getModel("phone").getProperty(sPath);
+
+			thisView = oView; 
 			
+			oView.setModel(new JSONModel(oView.getModel("phone").getProperty(sPath)), "upPhone");
+			
+			oDialog.open();	
 
-			console.log(oView.getModel("phone>").getPrope;
+			index = sPath.split('/');
+			
+		},
 
-			var Path = new JSONModel ({
-				path : sPath
-			});
+		onUpdateAndCloseDialog : function() {
+			var oModel = thisView.getModel("phone");
 
-			oView.setModel(Path, "sPath");
+			var aPhone = oModel.getProperty("/Phones");
+
+			var phone = thisView.getModel("upPhone");
+
+			var updatedPhone = {
+   			   ID : phone.getProperty("/ID"),
+               Mark: phone.getProperty("/Mark"),
+               Model : phone.getProperty("/Model"),
+               Operating_system : phone.getProperty("/Operating_system"),
+               Version : phone.getProperty("/Version"),
+               Color : phone.getProperty("/Color"),
+               Price: phone.getProperty("/Price")   
+   			};
+
+
+   			
+			oModel.setProperty("/Phones/"+index[2], updatedPhone);
+
+			this._getDialog().close();
 		},
 
 		onCloseDialog : function () {
-			this._getDialog().close();
+
+			this._getDialog().close();	
 		}
 	});
 });

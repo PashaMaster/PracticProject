@@ -39,13 +39,6 @@
 			"settings": {
 				"bundleName": "sap.ui.iba.practic.i18n.i18n"
 			}
-		},
-		"global": {
-			"dataSource": "mainService",
-			"settings": {
-				"defaultBindingMode": "TwoWay"
-			},
-			"useBatch": true
 		}
 	},
 	"resources": {

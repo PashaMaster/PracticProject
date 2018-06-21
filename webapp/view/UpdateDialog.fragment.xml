@@ -10,7 +10,7 @@
             class="label"
             text = "Mark:"/>
          <Input
-               value="{path: 'phone>/Phones/1/Mark'}"
+               value="{upPhone>/Mark}"
                valueLiveUpdate="true"
                width="50%"/>
          <ToolbarSpacer/>
@@ -18,7 +18,7 @@
             class="label"
             text = "Model:"/>
          <Input
-               value="{phone>/Phones/1/Mark}"
+               value="{upPhone>/Model}"
                valueLiveUpdate="true"
                width="50%"/>
          <ToolbarSpacer/>
@@ -26,7 +26,7 @@
             class="label"
             text = "Operating system:"/>
          <Input
-               value="{view>/currency}"
+               value="{upPhone>/Operating_system}"
                valueLiveUpdate="true"
                width="50%"/>
          <ToolbarSpacer/>
@@ -34,15 +34,7 @@
             class="label"
             text = "Version:"/>
          <Input
-               value=""
-               valueLiveUpdate="true"
-               width="50%"/>
-         <ToolbarSpacer/>
-         <Label 
-            class="label"
-            text = "Color:"/>
-         <Input
-               value=""
+               value="{upPhone>/Version}"
                valueLiveUpdate="true"
                width="50%"/>
          <ToolbarSpacer/>
@@ -50,7 +42,7 @@
             class="label"
             text = "Price:"/>
          <Input
-               value=""
+               value="{upPhone>/Price}"
                valueLiveUpdate="true"
                width="50%"/>
       </content>      
@@ -59,7 +51,8 @@
             icon="sap-icon://accept"
             type="Accept"
             text="{i18n>dialogCloseButtonText}"
-            press="onCloseDialog"/>
+            press="onUpdateAndCloseDialog"/>
+         
       </beginButton>
    </Dialog>
 </core:FragmentDefinition>

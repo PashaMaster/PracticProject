@@ -1,11 +1,13 @@
 <mvc:View
    height="100%"
    controllerName="sap.ui.iba.practic.controller.App"
+   xmlns:core="sap.ui.core"
    xmlns:mvc="sap.ui.core.mvc"
    xmlns="sap.m">
    <Page showHeader="false">
       <content>
-         <Table id="idPhoneTable"
+         <Table 
+            id="idPhoneTable"
             inset="false"
             items="{
             path : 'phone>/Phones'}">
@@ -13,11 +15,67 @@
                <Toolbar>
                   <Title text="{i18n>phoneTableTitle}" level="H2"/>
                   <ToolbarSpacer/>
-                  <SearchField width="50%" search="onFilterPhones"/>
                   <Button 
                         press="onCreate"
                         icon="sap-icon://add"
                         />
+               </Toolbar>
+            </headerToolbar>
+            <columns>
+               <Column
+                  width="30%">
+                  <Input id="filterMark" value="" description="Mark" liveChange="onFilterPhonesMark"/>
+               </Column>
+               <Column
+                  width="30%"
+                  demandPopin="true">
+                  <Input id="filterModel" value="" description="Model" liveChange="onFilterPhonesModel"/>
+               </Column>
+               <Column
+                  width="20%"
+                  hAlign="Center">
+                  <Text text="Price" />
+               </Column>
+               <Column
+                  width="10%"
+                  hAlign="Right">
+               </Column>
+               <Column
+                  width="10%"
+                  hAlign="Left">
+               </Column>
+            </columns>
+            <items>
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier
+                        title="{phone>Mark}"
+                        />
+                     <Text
+                        text="{phone>Model}" />
+                     <ObjectNumber
+                        number="{
+                           parts: [{path: 'phone>Price'}, {path: 'view>/currency'}],
+                           type: 'sap.ui.model.type.Currency',
+                           formatOptions: { showMeasure: false }
+                        }" 
+                        unit="{view>/currency}"
+                        state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
+                     <Button
+                        press="onUpdate" 
+                        icon="sap-icon://edit"/>
+                     <Button 
+                        press="onSelected"
+                        icon="sap-icon://delete" />
+                  </cells>
+               </ColumnListItem>
+            </items>            
+         </Table>   
+         <Table id="idSelectedPhoneTable"
+            inset="false">
+            <headerToolbar>
+               <Toolbar>
+                  <Title text="{i18n>phoneTableTitleSelected}" level="H2"/>
                </Toolbar>
             </headerToolbar>
             <columns>
@@ -46,49 +104,41 @@
                   <Text text="Color" />
                </Column>
                <Column
-                  hAlign="Right">
-                  <Text text="Price" />
-               </Column>
-               <Column
-                  hAlign="Right">
-               </Column>
-               <Column
                   hAlign="Left">
+                  <Text text="Price" />
                </Column>
             </columns>
             <items>
                <ColumnListItem>
                   <cells>
                      <ObjectIdentifier
-                        title="{phone>Mark}"
-                        />
+                        title="{selectedPhone>/Mark}" />
                      <Text
-                        text="{phone>Model}" />
+                        text="{selectedPhone>/Model}" />
                      <Text
-                        text="{phone>Operating_system}" />
+                        text="{selectedPhone>/Operating_system}" />
                      <Text
-                        text="{phone>Version}" />
-                     <Text
-                        text="{phone>Color}" />
+                        text="{selectedPhone>/Version}" />
+                     <Select
+                        forceSelection="true"
+                        selectedKey="{/Phones/0/ID}"
+                        items="{
+                           path: 'selectedPhone>/Colors',
+                           sorter: { path: 'Color' }
+                        }">
+                        <core:Item key="{ID}" text="{selectedPhone>Color}" />
+                     </Select>
                      <ObjectNumber
                         number="{
-                           parts: [{path: 'phone>Price'}, {path: 'view>/currency'}],
+                           parts: [{path: 'selectedPhone>/Price'}, {path: 'view>/currency'}],
                            type: 'sap.ui.model.type.Currency',
                            formatOptions: { showMeasure: false }
                         }" 
-                        unit="{view>/currency}"
-                        state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
-                     <Button
-                        press="onUpdate" 
-                        icon="sap-icon://edit"/>
-                     <Button 
-                        press="onDelete"
-                        icon="sap-icon://delete" />
+                        unit="{view>/currency}"/>
                   </cells>
                </ColumnListItem>
             </items>
-            
-         </Table>     
+         </Table>   
       </content>
    </Page>
 </mvc:View>

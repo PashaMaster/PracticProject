@@ -6,7 +6,20 @@
 		"Model" : "P20 Lite ANE-LX1",
 		"Operating_system" : "Android",
 		"Version" : "Android 8.0 Oreo",
-		"Color" : "Black",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			},
+			{ 
+				"Color" : "Red"
+			},
+			{ 
+				"Color" : "Green"
+			},
+			{ 
+				"Color" : "Blue"
+			}
+		],
 		"Price": 600.000	  
 	},
 	{
@@ -15,7 +28,11 @@
 		"Model" : "Redmi Note 5 4GB/64GB",
 		"Operating_system" : "Android",
 		"Version" : "Android 7.1 Nougat",
-		"Color" : "Black",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			}
+		],
 		"Price": 547.000	  
 	},
 	{
@@ -24,7 +41,11 @@
 		"Model" : "iPhone 7 32GB",
 		"Operating_system" : "Apple iOS",
 		"Version" : "iOS 10",
-		"Color" : "Black",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			}
+		],
 		"Price": 1220.000	  
 	},
 	{
@@ -33,7 +54,11 @@
 		"Model" : "Redmi 5 Plus 3GB/32GB",
 		"Operating_system" : "Android",
 		"Version" : "Android 7.1 Nougat",
-		"Color" : "Red",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			}
+		],
 		"Price": 386.000	  
 	},
 	{
@@ -42,7 +67,11 @@
 		"Model" : "iPhone X 64GB",
 		"Operating_system" : "Apple iOS",
 		"Version" : "iOS 11",
-		"Color" : "Gold",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			}
+		],
 		"Price": 2280.000	  
 	},
 	{
@@ -51,7 +80,11 @@
 		"Model" : "P20 Pro CLT-L29",
 		"Operating_system" : "Android",
 		"Version" : "Android 8.1 Oreo",
-		"Color" : "Blue",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			}
+		],
 		"Price": 1780.000	  
 	},
 	{
@@ -60,7 +93,11 @@
 		"Model" : "Galaxy S8 Dual SIM 64GB",
 		"Operating_system" : "Android",
 		"Version" : "Android 7.0 Nougat",
-		"Color" : "Red",
+		"Colors" : [
+			{ 
+				"Color" : "Black"
+			}
+		],
 		"Price": 1222.000	  
 	}
   ]

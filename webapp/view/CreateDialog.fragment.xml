@@ -40,14 +40,6 @@
          <ToolbarSpacer/>
          <Label 
             class="label"
-            text = "Color:"/>
-         <Input
-               value="{newPhone>/Color}"
-               valueLiveUpdate="true"
-               width="50%"/>
-         <ToolbarSpacer/>
-         <Label 
-            class="label"
             text = "Price:"/>
          <Input
                value="{newPhone>/Price}"
