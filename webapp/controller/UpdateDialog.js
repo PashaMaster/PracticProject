@@ -15,11 +15,22 @@ sap.ui.define([
 			return this._oDialog;
 		},
 
-		onOpenDialog : function (oView) {
+		onOpenDialog : function (oView, sPath) {
 			var oDialog = this._getDialog();
 			
 			oView.addDependent(oDialog);
+			
+						
 			oDialog.open();			
+			
+
+			console.log(oView.getModel("phone>").getPrope;
+
+			var Path = new JSONModel ({
+				path : sPath
+			});
+
+			oView.setModel(Path, "sPath");
 		},
 
 		onCloseDialog : function () {

@@ -10,7 +10,7 @@
             class="label"
             text = "Mark:"/>
          <Input
-               value="{phone>/Phones/1/Model}"
+               value="{path: 'phone>/Phones/1/Mark'}"
                valueLiveUpdate="true"
                width="50%"/>
          <ToolbarSpacer/>

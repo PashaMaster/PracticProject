@@ -1,93 +1,94 @@
 <mvc:View
+   height="100%"
    controllerName="sap.ui.iba.practic.controller.App"
    xmlns:mvc="sap.ui.core.mvc"
-   xmlns:core="sap.ui.core"
    xmlns="sap.m">
-   <App class="sapUiDemoWT">
-      <Table id="idPhoneTable"
-         inset="false"
-         items="{
-         path : 'phone>/Phones'}">
-         <headerToolbar>
-            <Toolbar>
-               <Title text="{i18n>phoneTableTitle}" level="H2"/>
-               <ToolbarSpacer/>
-               <SearchField width="50%" search="onFilterPhones"/>
-               <Button 
-                     press="onCreate"
-                     icon="sap-icon://add"
-                     />
-            </Toolbar>
-         </headerToolbar>
-         <columns>
-            <Column
-               width="12em">
-               <Text text="Mark" />
-            </Column>
-            <Column
-               demandPopin="true">
-               <Text text="Model" />
-            </Column>
-            <Column
-               minScreenWidth="Tablet"
-               demandPopin="true"
-               hAlign="Left">
-               <Text text="Operating system" />
-            </Column>
-            <Column
-               minScreenWidth="Tablet"
-               demandPopin="true"
-               hAlign="Left">
-               <Text text="Version" />
-            </Column>
-            <Column
-               hAlign="Left">
-               <Text text="Color" />
-            </Column>
-            <Column
-               hAlign="Right">
-               <Text text="Price" />
-            </Column>
-            <Column
-               hAlign="Right">
-            </Column>
-            <Column
-               hAlign="Left">
-            </Column>
-         </columns>
-         <items>
-            <ColumnListItem>
-               <cells>
-                  <ObjectIdentifier
-                     title="{phone>Mark}"
-                     />
-                  <Text
-                     text="{phone>Model}" />
-                  <Text
-                     text="{phone>Operating_system}" />
-                  <Text
-                     text="{phone>Version}" />
-                  <Text
-                     text="{phone>Color}" />
-                  <ObjectNumber
-                     number="{
-                        parts: [{path: 'phone>Price'}, {path: 'view>/currency'}],
-                        type: 'sap.ui.model.type.Currency',
-                        formatOptions: { showMeasure: false }
-                     }" 
-                     unit="{view>/currency}"
-                     state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
-                  <Button
-                     press="onUpdate" 
-                     icon="sap-icon://edit"
-                     />
+   <Page showHeader="false">
+      <content>
+         <Table id="idPhoneTable"
+            inset="false"
+            items="{
+            path : 'phone>/Phones'}">
+            <headerToolbar>
+               <Toolbar>
+                  <Title text="{i18n>phoneTableTitle}" level="H2"/>
+                  <ToolbarSpacer/>
+                  <SearchField width="50%" search="onFilterPhones"/>
                   <Button 
-                     press="onDelete"
-                     icon="sap-icon://delete"/>
-               </cells>
-            </ColumnListItem>
-         </items>
-         
-      </Table>     
-   </App>
+                        press="onCreate"
+                        icon="sap-icon://add"
+                        />
+               </Toolbar>
+            </headerToolbar>
+            <columns>
+               <Column
+                  width="12em">
+                  <Text text="Mark" />
+               </Column>
+               <Column
+                  demandPopin="true">
+                  <Text text="Model" />
+               </Column>
+               <Column
+                  minScreenWidth="Tablet"
+                  demandPopin="true"
+                  hAlign="Left">
+                  <Text text="Operating system" />
+               </Column>
+               <Column
+                  minScreenWidth="Tablet"
+                  demandPopin="true"
+                  hAlign="Left">
+                  <Text text="Version" />
+               </Column>
+               <Column
+                  hAlign="Left">
+                  <Text text="Color" />
+               </Column>
+               <Column
+                  hAlign="Right">
+                  <Text text="Price" />
+               </Column>
+               <Column
+                  hAlign="Right">
+               </Column>
+               <Column
+                  hAlign="Left">
+               </Column>
+            </columns>
+            <items>
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier
+                        title="{phone>Mark}"
+                        />
+                     <Text
+                        text="{phone>Model}" />
+                     <Text
+                        text="{phone>Operating_system}" />
+                     <Text
+                        text="{phone>Version}" />
+                     <Text
+                        text="{phone>Color}" />
+                     <ObjectNumber
+                        number="{
+                           parts: [{path: 'phone>Price'}, {path: 'view>/currency'}],
+                           type: 'sap.ui.model.type.Currency',
+                           formatOptions: { showMeasure: false }
+                        }" 
+                        unit="{view>/currency}"
+                        state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
+                     <Button
+                        press="onUpdate" 
+                        icon="sap-icon://edit"/>
+                     <Button 
+                        press="onDelete"
+                        icon="sap-icon://delete" />
+                  </cells>
+               </ColumnListItem>
+            </items>
+            
+         </Table>     
+      </content>
+   </Page>
 </mvc:View>

@@ -35,19 +35,19 @@
 	},
 	"models": {
 		"i18n": {
-		"type": "sap.ui.model.resource.ResourceModel",
-		"settings": {
-		  	"bundleName": "sap.ui.iba.practic.i18n.i18n"
+			"type": "sap.ui.model.resource.ResourceModel",
+			"settings": {
+				"bundleName": "sap.ui.iba.practic.i18n.i18n"
 			}
+		},
+		"global": {
+			"dataSource": "mainService",
+			"settings": {
+				"defaultBindingMode": "TwoWay"
+			},
+			"useBatch": true
 		}
 	},
-	"global": {
-                "dataSource": "mainService",
-                "settings": {
-                    "defaultBindingMode": "TwoWay"
-                },
-                "useBatch": true
-    },
 	"resources": {
 	  "css": [
 		{

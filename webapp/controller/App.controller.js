@@ -41,35 +41,24 @@ sap.ui.define([
 
       onUpdate : function (oEvent) {
          
-         console.log(oEvent.getSource());
-         
+         var sPath=oEvent.getSource().getParent().getBindingContext("phone").sPath;
 
-         this.getOwnerComponent().updateDialog.onOpenDialog(this.getView());
+         this.getOwnerComponent().updateDialog.onOpenDialog(this.getView(), sPath);
          
       },
       
       onDelete : function (oEvent) {
          
          var oModel = this.getView().getModel("phone");
+
          var aPhone = oModel.getProperty("/Phones");
 
+         var sPath=oEvent.getSource().getParent().getBindingContext("phone").sPath;
+         
+         var index = sPath.split('/');
 
-         var createdPhone = {
-               ID : 2,
-               Mark: "Xiaomi",
-               Model : "Redmi Note 5 4GB/64GB",
-               Operating_system : "Android",
-               Version : "Android 7.1 Nougat",
-               Color : "Black",
-               Price: 547.000     
-            };
-
-
-
-
-         var index = aPhone.indexOf("Redmi 5 Plus 3GB/32GB").Mark;
-
-         console.log(index);
+         aPhone.splice(index[2], 1);
+         oModel.setProperty("/Phones", aPhone);
       },
 
       onCreate : function (oEvent) {
