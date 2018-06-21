@@ -1,4 +1,4 @@
-{
+	{
   "_version": "1.1.0",
   "sap.app": {
 	"_version": "1.1.0",
@@ -34,21 +34,24 @@
 	  }
 	},
 	"models": {
-	  "i18n": {
+		"i18n": {
 		"type": "sap.ui.model.resource.ResourceModel",
 		"settings": {
-		  "bundleName": "sap.ui.iba.practic.i18n.i18n"
-		}
-	  },
-		"phone": {
-			"type": "sap.ui.model.json.JSONModel",
-			"uri": "Phones.json"
+		  	"bundleName": "sap.ui.iba.practic.i18n.i18n"
+			}
 		}
 	},
+	"global": {
+                "dataSource": "mainService",
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                },
+                "useBatch": true
+    },
 	"resources": {
 	  "css": [
 		{
-		
+		  "uri": "css/style.css"
 		}
 	  ]
 	}

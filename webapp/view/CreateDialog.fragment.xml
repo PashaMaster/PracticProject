@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      title="Create"
+      class="dialog">
+      <content>
+         <ToolbarSpacer/>
+         <Label 
+            class="label"
+            text = "Mark:"/>
+         <Input
+               value="{newPhone>/Mark}"
+               valueLiveUpdate="true"
+               width="50%"/>
+         <ToolbarSpacer/>
+         <Label 
+            class="label"
+            text = "Model:"/>
+         <Input
+               value="{newPhone>/Model}"
+               valueLiveUpdate="true"
+               width="50%"/>
+         <ToolbarSpacer/>
+         <Label 
+            class="label"
+            text = "Operating system:"/>
+         <Input
+               value="{newPhone>/Operating_system}"
+               valueLiveUpdate="true"
+               width="50%"/>
+         <ToolbarSpacer/>
+         <Label 
+            class="label"
+            text = "Version:"/>
+         <Input
+               value="{newPhone>/Version}"
+               valueLiveUpdate="true"
+               width="50%"/>
+         <ToolbarSpacer/>
+         <Label 
+            class="label"
+            text = "Color:"/>
+         <Input
+               value="{newPhone>/Color}"
+               valueLiveUpdate="true"
+               width="50%"/>
+         <ToolbarSpacer/>
+         <Label 
+            class="label"
+            text = "Price:"/>
+         <Input
+               value="{newPhone>/Price}"
+               valueLiveUpdate="true"
+               width="50%"/>
+      </content>      
+      <beginButton>
+         <Button
+            icon="sap-icon://accept"
+            type="Accept"
+            text="{i18n>dialogCloseButtonText}"
+            press="onCloseDialog"/>
+      </beginButton>
+   </Dialog>
+</core:FragmentDefinition>

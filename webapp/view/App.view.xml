@@ -1,8 +1,8 @@
 <mvc:View
    controllerName="sap.ui.iba.practic.controller.App"
-   xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
-   displayBlock="true" >
+   xmlns:core="sap.ui.core"
+   xmlns="sap.m">
    <App class="sapUiDemoWT">
       <Table id="idPhoneTable"
          inset="false"
@@ -13,6 +13,10 @@
                <Title text="{i18n>phoneTableTitle}" level="H2"/>
                <ToolbarSpacer/>
                <SearchField width="50%" search="onFilterPhones"/>
+               <Button 
+                     press="onCreate"
+                     icon="sap-icon://add"
+                     />
             </Toolbar>
          </headerToolbar>
          <columns>
@@ -21,7 +25,6 @@
                <Text text="Mark" />
             </Column>
             <Column
-               minScreenWidth="Tablet"
                demandPopin="true">
                <Text text="Model" />
             </Column>
@@ -45,6 +48,12 @@
                hAlign="Right">
                <Text text="Price" />
             </Column>
+            <Column
+               hAlign="Right">
+            </Column>
+            <Column
+               hAlign="Left">
+            </Column>
          </columns>
          <items>
             <ColumnListItem>
@@ -55,7 +64,7 @@
                   <Text
                      text="{phone>Model}" />
                   <Text
-                     text="{phone>Operating system}" />
+                     text="{phone>Operating_system}" />
                   <Text
                      text="{phone>Version}" />
                   <Text
@@ -68,9 +77,17 @@
                      }" 
                      unit="{view>/currency}"
                      state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
+                  <Button
+                     press="onUpdate" 
+                     icon="sap-icon://edit"
+                     />
+                  <Button 
+                     press="onDelete"
+                     icon="sap-icon://delete"/>
                </cells>
             </ColumnListItem>
          </items>
-      </Table>
+         
+      </Table>     
    </App>
 </mvc:View>
