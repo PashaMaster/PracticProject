@@ -1,4 +1,4 @@
-	{
+{
   "_version": "1.1.0",
   "sap.app": {
 	"_version": "1.1.0",
@@ -47,6 +47,49 @@
 		  "uri": "css/style.css"
 		}
 	  ]
+	},
+	"routing": {
+		"config": {
+			"routerClass": "sap.m.routing.Router",
+			"viewPath": "sap.ui.iba.practic.view",
+			"controlId": "rootControl",
+			"viewType": "XML",
+			"async": true
+		},
+		"routes": [
+			{
+				"name": "menu",
+				"pattern": "",
+				"target": ["menu"]
+			},
+			{
+				"name": "info",
+				"pattern": "info",
+				"target": ["info"]
+			},
+			{
+				"name": "table",
+				"pattern": "table",
+				"target": ["table"]
+			}
+		],
+		"targets": {
+			"menu": {
+				"viewName": "menuPage",
+				"controlAggregation": "pages",
+				"viewLevel": 0
+			},
+			"info": {
+				"viewName": "Info",
+				"controlAggregation": "pages",
+				"viewLevel": 1
+			},
+			"table": {
+				"viewName": "Table",
+				"controlAggregation": "pages",
+				"viewLevel": 2
+			}
+		}
 	}
   }
 }

@@ -18,11 +18,12 @@
       </script>
       <script>
          sap.ui.getCore().attachInit(function () {
-               new sap.m.Shell({
-               app : new sap.ui.core.ComponentContainer({
-                  name : "sap.ui.iba.practic",
-                  height : "100%"
-               })
+               new sap.ui.core.ComponentContainer({
+               height : "100%",
+               name : "sap.ui.iba.practic",
+               settings : {
+                  id : "routingApp"
+               }
             }).placeAt("content");
          });
       </script>

@@ -4,7 +4,8 @@ sap.ui.define([
    "sap/ui/model/resource/ResourceModel",
    "sap/ui/iba/practic/controller/UpdateDialog",
    "sap/ui/iba/practic/controller/CreateDialog",
-], function (UIComponent, JSONModel, ResourceModel, UpdateDialog, CreateDialog) {
+   "sap/ui/Device"
+], function (UIComponent, JSONModel, ResourceModel, UpdateDialog, CreateDialog, Device) {
    
    "use strict";
    
@@ -26,6 +27,18 @@ sap.ui.define([
 
          this.updateDialog = new UpdateDialog();
          this.createDialog = new CreateDialog();
+         
+         this.getRouter().initialize();
+
+         this.getRouter().attachTitleChanged(function(oEvent){
+            document.title = oEvent.getParameter("title");
+         });
+      },
+      
+      createDeviceModel : function () {
+         var oModel = new JSONModel(Device);
+         oModel.setDefaultBindingMode("OneWay");
+         return oModel;
       }
    });
 });

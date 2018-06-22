@@ -1,0 +1,14 @@
+<mvc:View
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sap.ui.iba.practic.controller.Info"
+	xmlns="sap.m">
+	<Page>
+		<content>
+	        <Button
+             icon="sap-icon://home"
+             press="onNavBack"/>
+          <Title text="{i18n>galary}" level="H2"/>
+        </content>
+	</Page>
+</mvc:View>

@@ -18,6 +18,7 @@ sap.ui.define([
 			}
 			return this._oDialog;
 		},
+		
 		onOpenDialog : function (oView) {
 			var oDialog = this._getDialog();
 			

@@ -3,14 +3,20 @@ sap.ui.define([
    "sap/ui/model/json/JSONModel",
    "sap/ui/model/Filter",
    "sap/ui/model/FilterOperator",
-   "sap/ui/model/resource/ResourceModel"
-], function (Controller, JSONModel, Filter, FilterOperator, ResourceModel) {
+   "sap/ui/model/resource/ResourceModel",
+   "sap/ui/core/routing/History",
+    "sap/ui/Device"
+
+], function (Controller, JSONModel, Filter, FilterOperator, ResourceModel, History, Device) {
    
    "use strict";
 
-   return Controller.extend("sap.ui.iba.practic.controller.App", {
+   return Controller.extend("sap.ui.iba.practic.controller.Table", {
    	
       onInit : function () {
+         
+         this.getOwnerComponent().getRouter().getRoute("table").attachPatternMatched(this._onRouteMatched, this);
+
          var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.iba.practic.mock", "/Phones.json"));
          
          this.getView().setModel(oModel, "phone");
@@ -19,7 +25,28 @@ sap.ui.define([
 				currency: "BYN"
 			});
          this.getView().setModel(oViewModel, "view");         
+         
 		},
+
+      _onRouteMatched: function(oEvent) {
+         
+         if(!Device.system.phone) {
+            this.getOwnerComponent().getRouter()
+               .navTo("table", {}, true);           
+         }
+      },
+
+      onNavBack : function () {
+         
+         var sPreviousHash = History.getInstance().getPreviousHash();
+
+         if (sPreviousHash !== undefined) {
+            window.history.go(-1);
+         } else {
+            this.getOwnerComponent().getRouter()
+               .navTo("menu", !Device.system.phone);
+         }
+      },
 
       getI18N: function() {
 

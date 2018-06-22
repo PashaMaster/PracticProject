@@ -1,0 +1,19 @@
+<core:View
+	height="100%"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	controllerName="sap.ui.iba.practic.controller.menuPage">
+
+	<Page
+		title="Menu">
+		
+		<Button 
+			text="galary"
+			press="goToInfo"/>
+		<Button 
+			text="table"
+			press="goToTable"/>
+	</Page>
+
+</core:View>
