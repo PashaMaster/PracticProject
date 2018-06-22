@@ -2,50 +2,44 @@
    xmlns="sap.m"
    xmlns:core="sap.ui.core" >
    <Dialog
-      title="Update"
+      contentWidth="40%"
+      title="{i18n>update}"
       class="dialog">
       <content>
-         <ToolbarSpacer/>
-         <Label 
-            class="label"
-            text = "Mark:"/>
-         <Input
+         <InputListItem label="{i18n>mark}">
+            <Input
+               placeholder="{i18n>mark}"
                value="{upPhone>/Mark}"
-               valueLiveUpdate="true"
-               width="50%"/>
+               type="Text" />
+         </InputListItem>
          <ToolbarSpacer/>
-         <Label 
-            class="label"
-            text = "Model:"/>
-         <Input
+         <InputListItem label="{i18n>model}">
+            <Input
+               placeholder="{i18n>model}"
                value="{upPhone>/Model}"
-               valueLiveUpdate="true"
-               width="50%"/>
+               type="Text" />
+         </InputListItem>
          <ToolbarSpacer/>
-         <Label 
-            class="label"
-            text = "Operating system:"/>
-         <Input
+         <InputListItem label="{i18n>operatingSystem}">
+            <Input
+               placeholder="{i18n>operatingSystem}"
                value="{upPhone>/Operating_system}"
-               valueLiveUpdate="true"
-               width="50%"/>
+               type="Text" />
+         </InputListItem>
          <ToolbarSpacer/>
-         <Label 
-            class="label"
-            text = "Version:"/>
-         <Input
+         <InputListItem label="{i18n>version}">
+            <Input
+               placeholder="{i18n>version}"
                value="{upPhone>/Version}"
-               valueLiveUpdate="true"
-               width="50%"/>
+               type="Text" />
+         </InputListItem>
          <ToolbarSpacer/>
-         <Label 
-            class="label"
-            text = "Price:"/>
-         <Input
-               type="Number"
+         <InputListItem label="{i18n>price}">
+            <Input
+               placeholder="{i18n>price}"
                value="{upPhone>/Price}"
-               valueLiveUpdate="true"
-               width="50%"/>
+               type="Text" />
+         </InputListItem>
       </content>      
       <beginButton>
          <Button

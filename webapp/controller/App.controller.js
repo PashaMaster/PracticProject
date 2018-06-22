@@ -2,30 +2,33 @@ sap.ui.define([
    "sap/ui/core/mvc/Controller",
    "sap/ui/model/json/JSONModel",
    "sap/ui/model/Filter",
-   "sap/ui/model/FilterOperator"      
-], function (Controller, JSONModel, Filter, FilterOperator) {
+   "sap/ui/model/FilterOperator",
+   "sap/ui/model/resource/ResourceModel"
+], function (Controller, JSONModel, Filter, FilterOperator, ResourceModel) {
    
    "use strict";
-
-
 
    return Controller.extend("sap.ui.iba.practic.controller.App", {
    	
       onInit : function () {
-			try {
-            var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.iba.practic.mock", "/Phones.json"));
-            
-            this.getView().setModel(oModel, "phone");
-          
-            var oViewModel = new JSONModel({
-   				currency: "BYN"
-   			});
-            this.getView().setModel(oViewModel, "view");
-         }
-         catch (e) {
-            console.log(e);
-         }
+         var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.iba.practic.mock", "/Phones.json"));
+         
+         this.getView().setModel(oModel, "phone");
+       
+         var oViewModel = new JSONModel({
+				currency: "BYN"
+			});
+         this.getView().setModel(oViewModel, "view");         
 		},
+
+      getI18N: function() {
+
+         var file = this.getView().byId("language").getProperty("selectedKey");
+         var i18nModel = new ResourceModel({
+            bundleName : "sap.ui.iba.practic.i18n.i18n_" + file
+         });
+         this.getView().setModel(i18nModel, "i18n");
+      },
 
       onFilterPhonesMark: function (oEvent) {
 

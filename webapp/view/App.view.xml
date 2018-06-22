@@ -15,25 +15,30 @@
                <Toolbar>
                   <Title text="{i18n>phoneTableTitle}" level="H2"/>
                   <ToolbarSpacer/>
-                  <Button 
-                     press="onCreate"
-                     icon="sap-icon://add"/>
+                  <Select
+                     id="language"
+                     forceSelection="true"
+                     selectedKey="ru"
+                     change="getI18N">
+                     <core:Item key="ru" text="{i18n>ru}"/>
+                     <core:Item key="en" text="{i18n>en}"/>
+                  </Select>
                </Toolbar>
             </headerToolbar>
             <columns>
                <Column
                   width="30%">
-                  <Input id="filterMark" value="" description="Mark" liveChange="onFilterPhonesMark"/>
+                  <Input id="filterMark" value="" description="{i18n>mark}" liveChange="onFilterPhonesMark"/>
                </Column>
                <Column
                   width="30%"
                   demandPopin="true">
-                  <Input id="filterModel" value="" description="Model" liveChange="onFilterPhonesModel"/>
+                  <Input id="filterModel" value="" description="{i18n>model}" liveChange="onFilterPhonesModel"/>
                </Column>
                <Column
                   width="20%"
                   hAlign="Center">
-                  <Text text="Price" />
+                  <Text text="{i18n>price}" />
                </Column>
                <Column
                   width="10%"
@@ -42,6 +47,9 @@
                <Column
                   width="10%"
                   hAlign="Left">
+                  <Button 
+                     press="onCreate"
+                     icon="sap-icon://add"/>
                </Column>
             </columns>
             <items>
@@ -82,31 +90,31 @@
             <columns>
                <Column
                   width="12em">
-                  <Text text="Mark" />
+                  <Text text="{i18n>mark}" />
                </Column>
                <Column
                   demandPopin="true">
-                  <Text text="Model" />
+                  <Text text="{i18n>model}" />
                </Column>
                <Column
                   minScreenWidth="Tablet"
                   demandPopin="true"
                   hAlign="Left">
-                  <Text text="Operating system" />
+                  <Text text="{i18n>operatingSystem}" />
                </Column>
                <Column
                   minScreenWidth="Tablet"
                   demandPopin="true"
                   hAlign="Left">
-                  <Text text="Version" />
+                  <Text text="{i18n>version}" />
                </Column>
                <Column
                   hAlign="Left">
-                  <Text text="Color" />
+                  <Text text="{i18n>color}" />
                </Column>
                <Column
                   hAlign="Left">
-                  <Text text="Price" />
+                  <Text text="{i18n>price}" />
                </Column>
             </columns>
             <items>
