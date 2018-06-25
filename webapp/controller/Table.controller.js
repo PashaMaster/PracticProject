@@ -3,18 +3,19 @@ sap.ui.define([
    "sap/ui/model/json/JSONModel",
    "sap/ui/model/Filter",
    "sap/ui/model/FilterOperator",
-   "sap/ui/model/resource/ResourceModel",
-   "sap/ui/core/routing/History",
-    "sap/ui/Device"
+   "sap/ui/model/resource/ResourceModel"
 
-], function (Controller, JSONModel, Filter, FilterOperator, ResourceModel, History, Device) {
+], function (Controller, JSONModel, Filter, FilterOperator, ResourceModel) {
    
    "use strict";
+
+   var file;
 
    return Controller.extend("sap.ui.iba.practic.controller.Table", {
    	
       onInit : function () {
          
+          
          this.getOwnerComponent().getRouter().getRoute("table").attachPatternMatched(this._onRouteMatched, this);
 
          var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.iba.practic.mock", "/Phones.json"));
@@ -30,27 +31,7 @@ sap.ui.define([
 
       _onRouteMatched: function(oEvent) {
          
-         if(!Device.system.phone) {
-            this.getOwnerComponent().getRouter()
-               .navTo("table", {}, true);           
-         }
-      },
-
-      onNavBack : function () {
-         
-         var sPreviousHash = History.getInstance().getPreviousHash();
-
-         if (sPreviousHash !== undefined) {
-            window.history.go(-1);
-         } else {
-            this.getOwnerComponent().getRouter()
-               .navTo("menu", !Device.system.phone);
-         }
-      },
-
-      getI18N: function() {
-
-         var file = this.getView().byId("language").getProperty("selectedKey");
+         file = oEvent.getParameter("arguments").lang;
          var i18nModel = new ResourceModel({
             bundleName : "sap.ui.iba.practic.i18n.i18n_" + file
          });
@@ -127,9 +108,25 @@ sap.ui.define([
 
       onSelected : function(oEvent) {
 
-         var sPath=oEvent.getSource().getBindingContext("phone").sPath;
-         var selectedPhone = this.getView().getModel("phone").getProperty(sPath);
-         this.getView().setModel(new JSONModel(selectedPhone), "selectedPhone");
+         var sPath = oEvent.getSource().getBindingContext("phone").sPath;
+         var index = sPath.split('/');
+
+         this.getOwnerComponent().getRouter()
+               .navTo("detail", {selectedPhone : index[2], lang: file});           
+      },
+
+      getI18N: function(oEvent) {
+
+         file = this.getView().byId("language").getProperty("selectedKey");
+         var i18nModel = new ResourceModel({
+            bundleName : "sap.ui.iba.practic.i18n.i18n_" + file
+         });
+         this.getView().setModel(i18nModel, "i18n");
+      },
+
+      onNavBack: function (oEvent) {
+
+         this.getOwnerComponent().getRouter().navTo("menu", {}, true);
       }
    });
 });

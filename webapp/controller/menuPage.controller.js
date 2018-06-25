@@ -20,17 +20,13 @@ sap.ui.define([
 		
 		goToTable: function(oEvent) {
 			
-			console.log(oEvent);
-			console.log(this.getOwnerComponent().getRouter().navTo("table"));
 			this.getOwnerComponent().getRouter()
-					.navTo("table");				
+					.navTo("table", {lang : "en"});				
 				
 		},
 
 		goToInfo: function(oEvent) {
 			
-			console.log(oEvent);
-			console.log(this.getOwnerComponent().getRouter().navTo("info"));
 			this.getOwnerComponent().getRouter()
 					.navTo("info");				
 				

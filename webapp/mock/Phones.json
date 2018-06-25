@@ -30,7 +30,7 @@
 		"Version" : "Android 7.1 Nougat",
 		"Colors" : [
 			{ 
-				"Color" : "Black"
+				"Color" : "Red"
 			}
 		],
 		"Price": 547.000	  
@@ -43,7 +43,7 @@
 		"Version" : "iOS 10",
 		"Colors" : [
 			{ 
-				"Color" : "Black"
+				"Color" : "Blue"
 			}
 		],
 		"Price": 1220.000	  
@@ -56,7 +56,7 @@
 		"Version" : "Android 7.1 Nougat",
 		"Colors" : [
 			{ 
-				"Color" : "Black"
+				"Color" : "Green"
 			}
 		],
 		"Price": 386.000	  

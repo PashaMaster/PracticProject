@@ -69,8 +69,13 @@
 			},
 			{
 				"name": "table",
-				"pattern": "table",
+				"pattern": "table, {lang}",
 				"target": ["table"]
+			},
+			{
+				"name": "detail",
+				"pattern": "detail/{selectedPhone}, {lang}",
+				"target": ["detail"]
 			}
 		],
 		"targets": {
@@ -88,6 +93,11 @@
 				"viewName": "Table",
 				"controlAggregation": "pages",
 				"viewLevel": 2
+			},
+			"detail": {
+				"viewName": "DetailTable",
+				"controlAggregation": "pages",
+				"viewLevel": 3
 			}
 		}
 	}

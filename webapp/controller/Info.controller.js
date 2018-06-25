@@ -1,35 +1,24 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller", 
-    "sap/ui/core/routing/History",
-    "sap/ui/Device"
-
-], function(Controller, History, Device) {
+    "sap/ui/core/mvc/Controller"
+    
+], function(Controller) {
 	"use strict";
 	
 	return Controller.extend("sap.ui.iba.practic.controller.Info", {
 	   	
 	   	onInit : function () {
-			this.getOwnerComponent().getRouter().getRoute("info").attachPatternMatched(this._onRouteMatched, this);
-		},
-		
-		_onRouteMatched: function(oEvent) {
-			
-			if(!Device.system.phone) {
-				this.getOwnerComponent().getRouter()
-					.navTo("info", {}, true);				
-			}
+         
+          
+         this.getOwnerComponent().getRouter().getRoute("table").attachPatternMatched(this._onRouteMatched, this);
 		},
 
-		onNavBack : function () {
-			
-			var sPreviousHash = History.getInstance().getPreviousHash();
+      	_onRouteMatched: function(oEvent) {
+         
+      	},
 
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-			} else {
-				this.getOwnerComponent().getRouter()
-					.navTo("menu", !Device.system.phone);
-			}
-		}
+	   	onNavBack: function (oEvent) {
+
+         this.getOwnerComponent().getRouter().navTo("menu", {}, true);
+      	}
 	});
 });

@@ -1,23 +1,20 @@
 <mvc:View
    height="100%"
-   controllerName="sap.ui.iba.practic.controller.Table"
+   controllerName="sap.ui.iba.practic.controller.DetailTable"
    xmlns:l="sap.ui.layout"
    xmlns:core="sap.ui.core"
    xmlns:mvc="sap.ui.core.mvc"
    xmlns="sap.m">
    <Page showHeader="false">
       <content>
-         <Table 
-            id="idPhoneTable"
-            inset="false"
-            items="{
-            path : 'phone>/Phones'}">
+         <Table id="idSelectedPhoneTable"
+            inset="false">
             <headerToolbar>
                <Toolbar>
-                  <Button
-                     icon="sap-icon://home"
+                  <Button 
+                     icon="sap-icon://nav-back"
                      press="onNavBack"/>
-                  <Title text="{i18n>phoneTableTitle}" level="H2"/>
+                  <Title text="{i18n>phoneTableTitleSelected}" level="H2"/>
                   <ToolbarSpacer/>
                   <Select
                      id="language"
@@ -31,58 +28,64 @@
             </headerToolbar>
             <columns>
                <Column
-                  width="30%">
-                  <Input id="filterMark" value="" description="{i18n>mark}" liveChange="onFilterPhonesMark"/>
+                  width="12em">
+                  <Text text="{i18n>mark}" />
                </Column>
                <Column
-                  width="30%"
                   demandPopin="true">
-                  <Input id="filterModel" value="" description="{i18n>model}" liveChange="onFilterPhonesModel"/>
+                  <Text text="{i18n>model}" />
                </Column>
                <Column
-                  width="20%"
-                  hAlign="Center">
-                  <Text text="{i18n>price}" />
-               </Column>
-               <Column
-                  width="10%"
-                  hAlign="Right">
-               </Column>
-               <Column
-                  width="10%"
+                  minScreenWidth="Tablet"
+                  demandPopin="true"
                   hAlign="Left">
-                  <Button 
-                     press="onCreate"
-                     icon="sap-icon://add"/>
+                  <Text text="{i18n>operatingSystem}" />
+               </Column>
+               <Column
+                  minScreenWidth="Tablet"
+                  demandPopin="true"
+                  hAlign="Left">
+                  <Text text="{i18n>version}" />
+               </Column>
+               <Column
+                  hAlign="Left">
+                  <Text text="{i18n>color}" />
+               </Column>
+               <Column
+                  hAlign="Left">
+                  <Text text="{i18n>price}" />
                </Column>
             </columns>
             <items>
-               <ColumnListItem
-                  type="Navigation"
-                  press="onSelected">
+               <ColumnListItem>
                   <cells>
                      <ObjectIdentifier
-                        title="{phone>Mark}"
-                        />
+                        title="{phone>Mark}" />
                      <Text
                         text="{phone>Model}" />
+                     <Text
+                        text="{phone>Operating_system}" />
+                     <Text
+                        text="{phone>Version}" />
+                     <Select
+                        forceSelection="true"
+                        selectedKey="{phone>ID}"
+                        items="{
+                           path: 'phone>Colors',
+                           sorter: { path: 'Color' }
+                        }">
+                        <core:Item key="{ID}" text="{phone>Color}" />
+                     </Select>
                      <ObjectNumber
                         number="{
                            parts: [{path: 'phone>Price'}, {path: 'view>/currency'}],
                            type: 'sap.ui.model.type.Currency',
                            formatOptions: { showMeasure: false }
                         }" 
-                        unit="{view>/currency}"
-                        state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
-                     <Button
-                        press="onUpdate" 
-                        icon="sap-icon://edit"/>
-                     <Button 
-                        press="onDelete"
-                        icon="sap-icon://delete" />
+                        unit="{view>/currency}"/>
                   </cells>
                </ColumnListItem>
-            </items>            
+            </items>
          </Table>   
       </content>
    </Page>
