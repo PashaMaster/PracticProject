@@ -3,12 +3,31 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	controllerName="sap.ui.iba.practic.controller.Info"
 	xmlns="sap.m">
-	<Page>
+	<Page
+		title = "{i18n>info}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
 		<content>
-	        <Button
-             icon="sap-icon://home"
-             press="onNavBack"/>
-          <Title text="{i18n>galary}" level="H2"/>
+			<l:Grid
+				class="sapUiSmallMarginTop"
+				hSpacing="2"
+				defaultSpan="L6 M6 S10">
+				<l:content>
+					<Image src="https://pp.userapi.com/c841428/v841428952/4b6df/rM9HmrRhWlI.jpg" width="100%">
+						<layoutData>
+							<l:GridData
+								span="L3 M3 S8"
+								linebreakL="true"
+								linebreakM="true"
+								linebreakS="true" />
+						</layoutData>
+					</Image>
+					<VBox>
+						<Text text="Шур Павел Геннадьевич" class="nameTitle" />
+						<Text text="Родился 01.12.1997. В 2015 году поступил в Гомельский Государственный Технический Университет им. П. О. Сухого, на факультет автоматизированных и информационных систем. Кафедра - Инфрмационные технологии. Год окончания - 2019. Место прохождения практики - ОАО 'ИВА-Гомель-Парк'." />
+					</VBox>	
+				</l:content>
+			</l:Grid>
         </content>
 	</Page>
 </mvc:View>

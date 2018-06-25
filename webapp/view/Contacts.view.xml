@@ -1,0 +1,49 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	controllerName="sap.ui.iba.practic.controller.Contacts">
+	<Page
+		title = "My contacts"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm id="SimpleFormDisplay354wideDual"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				title="Address"
+				labelSpanXL="4"
+				labelSpanL="3"
+				labelSpanM="4"
+				labelSpanS="12"
+				adjustLabelSpan="false"
+				emptySpanXL="0"
+				emptySpanL="4"
+				emptySpanM="0"
+				emptySpanS="0"
+				columnsXL="2"
+				columnsL="1"
+				columnsM="1"
+				singleContainerFullSize="false" >
+				<f:content>
+					<core:Title text="Office" />
+					<Label text="Full name of the contact" />
+					<Text id="nameText" text="Pavel Shur" />
+					<Label text="University" />
+					<Text text="Sukhoi state technical univesity of Gomel" />
+					<Label text="City" />
+					<Text text="Gomel" />
+					<Label text="Country" />
+					<Text id="countryText" text="Belarus" />
+					<core:Title text="Online" />
+					<Label text="E-mail of the contact" />
+					<Text text="pavel6355832@tut.by" />
+					<Label text="Instagram account of the contact" />
+					<Text text="@vampir_master" />
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+	</Page>
+</mvc:View>

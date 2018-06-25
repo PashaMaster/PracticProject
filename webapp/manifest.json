@@ -76,6 +76,16 @@
 				"name": "detail",
 				"pattern": "detail/{selectedPhone}, {lang}",
 				"target": ["detail"]
+			},
+			{
+				"name": "contact",
+				"pattern": "contact",
+				"target": ["contact"]
+			},
+			{
+				"name": "galary",
+				"pattern": "galary",
+				"target": ["galary"]
 			}
 		],
 		"targets": {
@@ -92,12 +102,22 @@
 			"table": {
 				"viewName": "Table",
 				"controlAggregation": "pages",
-				"viewLevel": 2
+				"viewLevel": 1
 			},
 			"detail": {
 				"viewName": "DetailTable",
 				"controlAggregation": "pages",
-				"viewLevel": 3
+				"viewLevel": 2
+			},
+			"contact": {
+				"viewName": "Contacts",
+				"controlAggregation": "pages",
+				"viewLevel": 1
+			},
+			"galary": {
+				"viewName": "Galary",
+				"controlAggregation": "pages",
+				"viewLevel": 1
 			}
 		}
 	}

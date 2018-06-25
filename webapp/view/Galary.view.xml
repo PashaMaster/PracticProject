@@ -1,0 +1,32 @@
+<mvc:View
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sap.ui.iba.practic.controller.Galary"
+	xmlns="sap.m">
+	<Page
+		title = "{i18n>galary}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		<content>
+			<Carousel>
+				<pages>
+		 			<Image 
+		 				src="https://keddr.com/wp-content/uploads/2017/04/samsung.jpg" 
+		 				height="400px"/>
+		 			<Image 
+		 				src="http://smartmobis.net.ua/files/products/s010760-01.800x600w.jpg" 
+		 				height="400px"/>
+		 			<Image 
+		 				src="https://store.mymeizu.es/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/6/0/60c5717d0c3c784bd761ef47ca0ab66c7ecb7010.jpg" 
+		 				height="400px"/>
+		 			<Image 
+		 				src="https://cdn.eglobalcentral.be/images/magictoolbox_cache/8c95d73fec130487c102a73bf1ab42ce/2/2/22870/thumb360x360/20582979/xiaomi-redmi-5-plus-4gb-64gb-dual-sim-black.jpg" 
+		 				height="400px"/>
+		 			<Image 
+		 				src="https://www.ferra.ru/869x3000/images/497/497259.jpg" 
+		 				height="400px"/>
+		 		</pages>
+		 	</Carousel> 			
+        </content>
+	</Page>
+</mvc:View>

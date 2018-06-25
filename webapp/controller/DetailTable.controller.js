@@ -9,7 +9,7 @@ sap.ui.define([
    
    "use strict";
 
-   var file;
+   var file = "ru";
 
    return Controller.extend("sap.ui.iba.practic.controller.DetailTable", {
    	

@@ -5,7 +5,7 @@ sap.ui.define([
 	"use strict";
 	
 	
-	return Controller.extend("sap.ui.iba.practic.controller.Info", {
+	return Controller.extend("sap.ui.iba.practic.controller.Galary", {
 	   	
 	   	onNavBack: function (oEvent) {
 

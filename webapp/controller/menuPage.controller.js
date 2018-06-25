@@ -4,6 +4,8 @@ sap.ui.define([
 ], function(Controller, Device) {
 	"use strict";
 
+	var file = "en";
+
 	return Controller.extend("sap.ui.iba.practic.controller.menuPage", {
 		
 		onInit : function () {
@@ -21,16 +23,27 @@ sap.ui.define([
 		goToTable: function(oEvent) {
 			
 			this.getOwnerComponent().getRouter()
-					.navTo("table", {lang : "en"});				
+					.navTo("table", {lang : file});				
 				
 		},
 
 		goToInfo: function(oEvent) {
 			
 			this.getOwnerComponent().getRouter()
-					.navTo("info");				
-				
+					.navTo("info");								
+		},
+
+		goToContact: function(oEvent) {
+			
+			this.getOwnerComponent().getRouter()
+					.navTo("contact");								
+		},
+		goToGalary: function(oEvent) {
+			
+			this.getOwnerComponent().getRouter()
+					.navTo("galary");								
 		}
+
 	});
 
 });

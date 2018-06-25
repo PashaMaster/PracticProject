@@ -1,19 +1,31 @@
-<core:View
-	height="100%"
+<mvc:View
+	xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
-	xmlns:tnt="sap.tnt"
 	controllerName="sap.ui.iba.practic.controller.menuPage">
-
 	<Page
-		title="Menu">
-		
-		<Button 
-			text="galary"
-			press="goToInfo"/>
-		<Button 
-			text="table"
-			press="goToTable"/>
+		title = "IBA practic project">
+		<FlexBox
+			alignItems="Start"
+			justifyContent="SpaceAround"
+			backgroundDesign = "Transparent">
+			<items>
+				<Button 
+					text="{i18n>contacts}"
+					press="goToContact"/>
+				<Button 
+					text="{i18n>info}"
+					press="goToInfo"/>
+				<Image src="http://iba.by/kcfinder/upload/images/news/new-ofice-gomel/2.jpg"/>
+				<Button 
+					text="{i18n>galary}"
+					press="goToGalary"/>
+				<Button 
+					text="{i18n>table}"
+					press="goToTable"/>				
+			</items>
+		</FlexBox>
 	</Page>
-
-</core:View>
+</mvc:View>
