@@ -139,7 +139,6 @@ sap.ui.define([
          var oEventBus = sap.ui.getCore().getEventBus();
          oEventBus.publish("Table", "menuPage", {text: file});
       },
-
      
       onNavBack: function (oEvent) {
 

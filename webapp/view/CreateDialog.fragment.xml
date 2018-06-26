@@ -28,15 +28,30 @@
             ariaLabelledBy="Title1" >
             <f:content>
                <Label text="{i18n>mark}" />
-               <Input value="{newPhone>/Mark}" />
+               <Input 
+                  id = "markInput"
+                  value="{newPhone>/Mark}" 
+                  type = "Text"/>
                <Label text="{i18n>model}" />
-               <Input value="{newPhone>/Model}" />
+               <Input 
+                  id = "modelInput"
+                  value="{newPhone>/Model}" 
+                  type = "Text"/>
                <Label text="{i18n>operatingSystem}" />
-               <Input value="{newPhone>/Operating_system}" />
+               <Input 
+                  id = "systemInput"
+                  value="{newPhone>/Operating_system}" 
+                  type = "Text"/>
                <Label text="{i18n>version}" />
-               <Input value="{newPhone>/Version}" />
+               <Input 
+                  id = "versionInput"
+                  value="{newPhone>/Version}" 
+                  type = "Text"/>
                <Label text="{i18n>price}" />
-               <Input value="{newPhone>/Price}" />               
+               <Input 
+                  id = "priceInput"
+                  value="{newPhone>/Price}" 
+                  type="Number"/>               
             </f:content>
          </f:SimpleForm>
       </VBox>
