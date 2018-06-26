@@ -136,10 +136,8 @@ sap.ui.define([
       getI18N: function(oEvent) {
 
          var file = this.getView().byId("language").getProperty("selectedKey");
-         var i18nModel = new ResourceModel({
-            bundleName : "sap.ui.iba.practic.i18n.i18n_" + file
-         });
-         this.getOwnerComponent().setModel(i18nModel, "i18n");
+         var oEventBus = sap.ui.getCore().getEventBus();
+         oEventBus.publish("Table", "menuPage", {text: file});
       },
 
      

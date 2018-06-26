@@ -9,6 +9,12 @@ sap.ui.define([
 	return Controller.extend("sap.ui.iba.practic.controller.menuPage", {
 		
 		onInit : function () {
+
+
+			var oEventBus = sap.ui.getCore().getEventBus();
+			oEventBus.subscribe("Table","menuPage", this.getI18N, this);
+			oEventBus.subscribe("DetailTable","menuPage", this.getI18N, this);
+
 			this.getOwnerComponent().getRouter().getRoute("menu").attachPatternMatched(this._onRouteMatched, this);
 		},
 		
@@ -44,15 +50,19 @@ sap.ui.define([
 					.navTo("galary");								
 		},
 
-		getI18N: function(oEvent) {
+		getI18N: function(sChanel, sEvent, oLang) {
 
-	        var file = this.getView().byId("language").getProperty("selectedKey");
+			var file
+			if (sEvent !== "menuPage") {
+				file = this.getView().byId("language").getProperty("selectedKey");
+	        } else {
+	        	file = oLang.text;
+	        }
 	        var i18nModel = new ResourceModel({
 	           bundleName : "sap.ui.iba.practic.i18n.i18n_" + file
 	        });
 	        this.getOwnerComponent().setModel(i18nModel, "i18n");
       	}
-
 	});
 
 });
