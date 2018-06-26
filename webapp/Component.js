@@ -28,6 +28,11 @@ sap.ui.define([
 
          var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.iba.practic.mock", "/Phones.json"));
          
+         var langModel = new JSONModel({
+            active: "ru"
+         });
+         this.setModel(langModel, "lang");  
+
          this.setModel(oModel, "phone");
 
          this.updateDialog = new UpdateDialog();

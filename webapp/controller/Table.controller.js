@@ -23,7 +23,6 @@ sap.ui.define([
 				currency: "BYN"
 			});
          this.getView().setModel(oViewModel, "view");  
-
       },
 
       _onRouteMatched: function(oEvent) {
@@ -143,6 +142,7 @@ sap.ui.define([
          this.getOwnerComponent().setModel(i18nModel, "i18n");
       },
 
+     
       onNavBack: function (oEvent) {
 
          this.getOwnerComponent().getRouter().navTo("menu", {}, true);

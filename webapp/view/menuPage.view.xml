@@ -10,7 +10,8 @@
 		<headerContent>
 			<Select
 				id="language"
-				forceSelection="false"
+				forceSelection="true"
+				selectedKey="{lang>/active}"
 				change="getI18N">
 				<core:Item key="ru" text="{i18n>ru}"/>
 				<core:Item key="en" text="{i18n>en}"/>

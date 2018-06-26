@@ -21,7 +21,8 @@
                   <ToolbarSpacer/>
                   <Select
                      id="language"
-                     forceSelection="false"
+                     forceSelection="true"
+                     selectedKey="{lang>/active}"
                      width="10%"
                      change="getI18N">
                      <core:Item key="ru" text="{i18n>ru}"/>
@@ -31,25 +32,30 @@
             </headerToolbar>
             <columns>
                <Column
-                  width="30%">
+                  width="30%"
+                  vAlign="Middle">
                   <Input id="filterMark" value="" description="{i18n>mark}" liveChange="onFilterPhonesMark"/>
                </Column>
                <Column
                   width="30%"
+                  vAlign="Middle"
                   demandPopin="true">
                   <Input id="filterModel" value="" description="{i18n>model}" liveChange="onFilterPhonesModel"/>
                </Column>
                <Column
                   width="20%"
+                  vAlign="Middle"
                   hAlign="Center">
                   <Text text="{i18n>price}" />
                </Column>
                <Column
                   width="10%"
+                  vAlign="Middle"
                   hAlign="Right">
                </Column>
                <Column
                   width="10%"
+                  vAlign="Middle"
                   hAlign="Left">
                   <Button 
                      press="onCreate"

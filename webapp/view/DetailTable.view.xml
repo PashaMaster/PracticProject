@@ -18,7 +18,8 @@
                   <ToolbarSpacer/>
                   <Select
                      id="language"
-                     forceSelection="false"
+                     forceSelection="true"
+                     selectedKey="{lang>/active}"
                      width="10%"
                      change="getI18N">
                      <core:Item key="ru" text="{i18n>ru}"/>
@@ -28,31 +29,37 @@
             </headerToolbar>
             <columns>
                <Column
-                  width="12em">
+                  width="12em"
+                  vAlign="Middle">
                   <Text text="{i18n>mark}" />
                </Column>
                <Column
-                  demandPopin="true">
+                  demandPopin="true"
+                  vAlign="Middle">
                   <Text text="{i18n>model}" />
                </Column>
                <Column
                   minScreenWidth="Tablet"
                   demandPopin="true"
-                  hAlign="Left">
+                  hAlign="Left"
+                  vAlign="Middle">
                   <Text text="{i18n>operatingSystem}" />
                </Column>
                <Column
                   minScreenWidth="Tablet"
                   demandPopin="true"
-                  hAlign="Left">
+                  hAlign="Left"
+                  vAlign="Middle">
                   <Text text="{i18n>version}" />
                </Column>
                <Column
-                  hAlign="Left">
+                  hAlign="Left"
+                  vAlign="Middle">
                   <Text text="{i18n>color}" />
                </Column>
                <Column
-                  hAlign="Left">
+                  hAlign="Left"
+                  vAlign="Middle">
                   <Text text="{i18n>price}" />
                </Column>
             </columns>
