@@ -1,56 +1,53 @@
 <core:FragmentDefinition
-   xmlns="sap.m"
-   xmlns:core="sap.ui.core" >
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:core="sap.ui.core"
+   xmlns="sap.m">
    <Dialog
-      contentWidth="40%"
+      contentWidth="45%"
       title="{i18n>create}"
       class="dialog">
-      <content>
-         <InputListItem label="{i18n>mark}">
-            <Input
-               placeholder="{i18n>mark}"
-               value="{newPhone>/Mark}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>model}">
-            <Input
-               placeholder="{i18n>model}"
-               value="{newPhone>/Model}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>operatingSystem}">
-            <Input
-               placeholder="{i18n>operatingSystem}"
-               value="{newPhone>/Operating_system}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>version}">
-            <Input
-               placeholder="{i18n>version}"
-               value="{newPhone>/Version}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>price}">
-            <Input
-               placeholder="{i18n>price}"
-               value="{newPhone>/Price}"
-               type="Text" />
-         </InputListItem>
-      </content>      
+      <VBox class="sapUiSmallMargin">
+         <f:SimpleForm id="SimpleFormCreate"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="4"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"
+            ariaLabelledBy="Title1" >
+            <f:content>
+               <Label text="{i18n>mark}" />
+               <Input value="{newPhone>/Mark}" />
+               <Label text="{i18n>model}" />
+               <Input value="{newPhone>/Model}" />
+               <Label text="{i18n>operatingSystem}" />
+               <Input value="{newPhone>/Operating_system}" />
+               <Label text="{i18n>version}" />
+               <Input value="{newPhone>/Version}" />
+               <Label text="{i18n>price}" />
+               <Input value="{newPhone>/Price}" />               
+            </f:content>
+         </f:SimpleForm>
+      </VBox>
       <beginButton>
          <Button
-            icon="sap-icon://create"
             type="Accept"
             text="{i18n>dialogCrateOk}"
             press="onCloseDialogOk"/>
       </beginButton>
       <endButton>
          <Button
-            icon="sap-icon://cancel"
             type="Accept"
             text="{i18n>dialogCrateCancel}"
             press="onCloseDialogCancel"/>

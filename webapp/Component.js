@@ -5,10 +5,11 @@ sap.ui.define([
    "sap/ui/iba/practic/controller/UpdateDialog",
    "sap/ui/iba/practic/controller/CreateDialog",
    "sap/ui/Device"
+
 ], function (UIComponent, JSONModel, ResourceModel, UpdateDialog, CreateDialog, Device) {
    
    "use strict";
-   
+
    return UIComponent.extend("sap.ui.iba.practic.Component", {
       
       metadata : {
@@ -25,6 +26,10 @@ sap.ui.define([
 
          this.setModel(i18nModel, "i18n");
 
+         var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.iba.practic.mock", "/Phones.json"));
+         
+         this.setModel(oModel, "phone");
+
          this.updateDialog = new UpdateDialog();
          this.createDialog = new CreateDialog();
          
@@ -39,6 +44,6 @@ sap.ui.define([
          var oModel = new JSONModel(Device);
          oModel.setDefaultBindingMode("OneWay");
          return oModel;
-      }
+      },
    });
 });

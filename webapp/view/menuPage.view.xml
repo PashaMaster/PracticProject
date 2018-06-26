@@ -7,12 +7,22 @@
 	controllerName="sap.ui.iba.practic.controller.menuPage">
 	<Page
 		title = "IBA practic project">
+		<headerContent>
+			<Select
+				id="language"
+				forceSelection="false"
+				change="getI18N">
+				<core:Item key="ru" text="{i18n>ru}"/>
+				<core:Item key="en" text="{i18n>en}"/>
+			</Select>
+		</headerContent>
 		<FlexBox
 			alignItems="Start"
 			justifyContent="SpaceAround"
 			backgroundDesign = "Transparent">
 			<items>
 				<Button 
+					class = "notBorder"
 					text="{i18n>contacts}"
 					press="goToContact"/>
 				<Button 

@@ -69,12 +69,12 @@
 			},
 			{
 				"name": "table",
-				"pattern": "table, {lang}",
+				"pattern": "table",
 				"target": ["table"]
 			},
 			{
 				"name": "detail",
-				"pattern": "detail/{selectedPhone}, {lang}",
+				"pattern": "detail/{selectedPhone}",
 				"target": ["detail"]
 			},
 			{

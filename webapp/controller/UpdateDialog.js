@@ -6,7 +6,9 @@ sap.ui.define([
 	"use strict";
 	var upPhone;
 	var thisView;
+	var thisOwner;
 	var index;
+
 	return Object.extend("sap.ui.iba.practic.controller.UpdateDialog", {
 		_getDialog : function () {
 			
@@ -17,7 +19,8 @@ sap.ui.define([
 			return this._oDialog;
 		},
 
-		onOpenDialog : function (oView, sPath) {
+		onOpenDialog : function (oView, sPath, oOwner) {
+			
 			var oDialog = this._getDialog();
 			
 			oView.addDependent(oDialog);
@@ -25,6 +28,7 @@ sap.ui.define([
 			upPhone = oView.getModel("phone").getProperty(sPath);
 
 			thisView = oView; 
+			thisOwner = oOwner;
 			
 			oView.setModel(new JSONModel(oView.getModel("phone").getProperty(sPath)), "upPhone");
 			
@@ -35,7 +39,8 @@ sap.ui.define([
 		},
 
 		onUpdateAndCloseDialog : function() {
-			var oModel = thisView.getModel("phone");
+			
+			var oModel = thisOwner.getModel("phone");
 
 			var aPhone = oModel.getProperty("/Phones");
 

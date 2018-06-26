@@ -7,6 +7,7 @@ sap.ui.define([
 
 	var newPhone;
 	var thisView;
+	var thisOwner;
 
 	return Object.extend("sap.ui.iba.practic.controller.CreateDialog", {
 		
@@ -19,12 +20,13 @@ sap.ui.define([
 			return this._oDialog;
 		},
 		
-		onOpenDialog : function (oView) {
+		onOpenDialog : function (oView, oOwner) {
 			var oDialog = this._getDialog();
 			
 			oView.addDependent(oDialog);
 			
 			thisView = oView;
+			thisOwner = oOwner;
 			
 			newPhone = new JSONModel({
    			   ID : 0,
@@ -44,7 +46,7 @@ sap.ui.define([
 
 		onCloseDialogOk : function () {
 
-			var oModel = thisView.getModel("phone");
+			var oModel = thisOwner.getModel("phone");
          
            	var aPhone = oModel.getProperty("/Phones");
          	

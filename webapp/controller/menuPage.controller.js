@@ -1,10 +1,10 @@
 sap.ui.define([
 		"sap/ui/core/mvc/Controller",
-		"sap/ui/Device"
-], function(Controller, Device) {
-	"use strict";
+		"sap/ui/Device",
+		"sap/ui/model/resource/ResourceModel"
 
-	var file = "en";
+], function(Controller, Device, ResourceModel) {
+	"use strict";
 
 	return Controller.extend("sap.ui.iba.practic.controller.menuPage", {
 		
@@ -23,7 +23,7 @@ sap.ui.define([
 		goToTable: function(oEvent) {
 			
 			this.getOwnerComponent().getRouter()
-					.navTo("table", {lang : file});				
+					.navTo("table");				
 				
 		},
 
@@ -42,7 +42,16 @@ sap.ui.define([
 			
 			this.getOwnerComponent().getRouter()
 					.navTo("galary");								
-		}
+		},
+
+		getI18N: function(oEvent) {
+
+	        var file = this.getView().byId("language").getProperty("selectedKey");
+	        var i18nModel = new ResourceModel({
+	           bundleName : "sap.ui.iba.practic.i18n.i18n_" + file
+	        });
+	        this.getOwnerComponent().setModel(i18nModel, "i18n");
+      	}
 
 	});
 

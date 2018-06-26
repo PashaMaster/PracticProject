@@ -1,57 +1,53 @@
 <core:FragmentDefinition
-   xmlns="sap.m"
-   xmlns:core="sap.ui.core" >
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:core="sap.ui.core"
+   xmlns="sap.m">
    <Dialog
-      contentWidth="40%"
+      contentWidth="45%"
       title="{i18n>update}"
       class="dialog">
-      <content>
-         <InputListItem label="{i18n>mark}">
-            <Input
-               placeholder="{i18n>mark}"
-               value="{upPhone>/Mark}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>model}">
-            <Input
-               placeholder="{i18n>model}"
-               value="{upPhone>/Model}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>operatingSystem}">
-            <Input
-               placeholder="{i18n>operatingSystem}"
-               value="{upPhone>/Operating_system}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>version}">
-            <Input
-               placeholder="{i18n>version}"
-               value="{upPhone>/Version}"
-               type="Text" />
-         </InputListItem>
-         <ToolbarSpacer/>
-         <InputListItem label="{i18n>price}">
-            <Input
-               placeholder="{i18n>price}"
-               value="{upPhone>/Price}"
-               type="Text" />
-         </InputListItem>
-      </content>      
+      <VBox class="sapUiSmallMargin">
+         <f:SimpleForm id="SimpleFormUpdate"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="4"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"
+            ariaLabelledBy="Title1" >
+            <f:content>
+               <Label text="{i18n>mark}" />
+               <Input value="{upPhone>/Mark}" />
+               <Label text="{i18n>model}" />
+               <Input value="{upPhone>/Model}" />
+               <Label text="{i18n>operatingSystem}" />
+               <Input value="{upPhone>/Operating_system}" />
+               <Label text="{i18n>version}" />
+               <Input value="{upPhone>/Version}" />
+               <Label text="{i18n>price}" />
+               <Input value="{upPhone>/Price}" />               
+            </f:content>
+         </f:SimpleForm>
+      </VBox>
       <beginButton>
          <Button
-            icon="sap-icon://synchronize"
             type="Accept"
             text="{i18n>dialogUpdateOk}"
-            press="onUpdateAndCloseDialog"/>
-         
+            press="onUpdateAndCloseDialog"/>         
       </beginButton>
       <endButton>
          <Button
-            icon="sap-icon://cancel"
             type="Accept"
             text="{i18n>dialogUpdateCancel}"
             press="onCloseDialog"/>         
