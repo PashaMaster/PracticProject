@@ -2,11 +2,10 @@ sap.ui.define([
    "sap/ui/core/UIComponent",
    "sap/ui/model/json/JSONModel",
    "sap/ui/model/resource/ResourceModel",
-   "sap/ui/iba/practic/controller/UpdateDialog",
    "sap/ui/iba/practic/controller/CreateDialog",
    "sap/ui/Device"
 
-], function (UIComponent, JSONModel, ResourceModel, UpdateDialog, CreateDialog, Device) {
+], function (UIComponent, JSONModel, ResourceModel, CreateDialog, Device) {
    
    "use strict";
 
@@ -20,6 +19,12 @@ sap.ui.define([
          
          UIComponent.prototype.init.apply(this, arguments);
          
+         var state = new JSONModel({
+             active : true
+         });
+
+         this.setModel(state, "state");         
+
          var i18nModel = new ResourceModel({
             bundleName : "sap.ui.iba.practic.i18n.i18n"
          });
@@ -35,7 +40,6 @@ sap.ui.define([
 
          this.setModel(oModel, "phone");
 
-         this.updateDialog = new UpdateDialog();
          this.createDialog = new CreateDialog();
          
          this.getRouter().initialize();

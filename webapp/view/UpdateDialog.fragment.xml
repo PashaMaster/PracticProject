@@ -6,37 +6,77 @@
    xmlns="sap.m">
    <Dialog
       contentWidth="45%"
-      title="{i18n>update}"
-      class="dialog">
+      class="dialog"
+      showHeader="false">
+      <customHeader>
+         <Bar>
+            <contentMiddle>
+               <Title text= "{= ${state>/active} === false ? ${i18n>update} : ${i18n>detail} }"/>
+            </contentMiddle>
+            <contentRight>
+                <Button
+                  class="buttonClose"
+                  type="Reject"
+                  icon = "sap-icon://decline"
+                  press="onCloseDialog"/>  
+            </contentRight>
+         </Bar>
+      </customHeader>
       <VBox class="sapUiSmallMargin">
-         <f:SimpleForm id="SimpleFormUpdate"
+         <f:SimpleForm 
+            title="{upPhone>/Mark} {upPhone>/Model}"
             editable="true"
             layout="ResponsiveGridLayout"
             labelSpanXL="4"
-            labelSpanL="3"
+            labelSpanL="4"
             labelSpanM="4"
             labelSpanS="12"
             adjustLabelSpan="false"
             emptySpanXL="0"
-            emptySpanL="4"
+            emptySpanL="0"
             emptySpanM="0"
             emptySpanS="0"
             columnsXL="2"
-            columnsL="1"
-            columnsM="1"
+            columnsL="2"
+            columnsM="2"
             singleContainerFullSize="false"
-            ariaLabelledBy="Title1" >
+            ariaLabelledBy="TitleB" >
             <f:content>
                <Label text="{i18n>mark}" />
-               <Input value="{upPhone>/Mark}" />
+               <Text 
+                  visible="{= ${state>/active} === false ? false : true }"
+                  text="{upPhone>/Mark}" />
+               <Input 
+                  visible="{= ${state>/active} === false ? true : false }"
+                  value="{upPhone>/Mark}" />
                <Label text="{i18n>model}" />
-               <Input value="{upPhone>/Model}" />
+               <Text 
+                  visible="{= ${state>/active} === false ? false : true }"
+                  text="{upPhone>/Model}" />
+               <Input 
+                  visible="{= ${state>/active} === false ? true : false }"
+                  value="{upPhone>/Model}" />
                <Label text="{i18n>operatingSystem}" />
-               <Input value="{upPhone>/Operating_system}" />
+               <Text 
+                  visible="{= ${state>/active} === false ? false : true }"
+                  text="{upPhone>/Operating_system}" />
+               <Input 
+                  visible="{= ${state>/active} === false ? true : false }"
+                  value="{upPhone>/Operating_system}" />
                <Label text="{i18n>version}" />
-               <Input value="{upPhone>/Version}" />
+               <Text 
+                  visible="{= ${state>/active} === false ? false : true }"
+                  text="{upPhone>/Version}" />
+               <Input 
+                  visible="{= ${state>/active} === false ? true : false }"
+                  value="{upPhone>/Version}" />
                <Label text="{i18n>price}" />
-               <Input value="{upPhone>/Price}" />               
+               <Text 
+                  visible="{= ${state>/active} === false ? false : true }"
+                  text="{upPhone>/Price}" />
+               <Input 
+                  visible="{= ${state>/active} === false ? true : false }"
+                  value="{upPhone>/Price}" />               
             </f:content>
          </f:SimpleForm>
       </VBox>
@@ -44,13 +84,13 @@
          <Button
             type="Accept"
             text="{i18n>dialogUpdateOk}"
-            press="onUpdateAndCloseDialog"/>         
+            press="onButtonGreen"/>         
       </beginButton>
       <endButton>
          <Button
-            type="Accept"
-            text="{i18n>dialogUpdateCancel}"
-            press="onCloseDialog"/>         
+            type="Reject"
+            text="{= ${state>/active} === false ? ${i18n>dialogUpdateCancel} : ${i18n>okDelete}}"
+            press="onButtonRed"/>         
       </endButton>
    </Dialog>
 </core:FragmentDefinition>

@@ -63,7 +63,7 @@
       </beginButton>
       <endButton>
          <Button
-            type="Accept"
+            type="Reject"
             text="{i18n>dialogCrateCancel}"
             press="onCloseDialogCancel"/>
       </endButton>

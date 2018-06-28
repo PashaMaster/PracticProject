@@ -58,6 +58,7 @@
                   vAlign="Middle"
                   hAlign="Left">
                   <Button 
+                     type="Transparent"
                      press="onCreate"
                      icon="sap-icon://add"/>
                </Column>
@@ -65,7 +66,7 @@
             <items>
                <ColumnListItem
                   type="Navigation"
-                  press="onSelected">
+                  press="onDetailUpdate">
                   <cells>
                      <ObjectIdentifier
                         title="{phone>Mark}"
@@ -81,9 +82,11 @@
                         unit="{view>/currency}"
                         state="{= ${phone>Price} > 1000 ? ${phone>Price} > 2000 ? 'Error' : 'Warning' : 'Success' }"/>
                      <Button
+                        type="Transparent"
                         press="onUpdate" 
                         icon="sap-icon://edit"/>
                      <Button 
+                        type="Transparent"
                         press="onDelete"
                         icon="sap-icon://delete" />
                   </cells>

@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/base/Object",
    	"sap/ui/model/json/JSONModel",
    	"sap/m/MessageBox",
-	"sap/ui/core/Fragment"
-], function (Object, JSONModel, MessageBox, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/m/MessageToast"
+], function (Object, JSONModel, MessageBox, Fragment, MessageToast) {
 	
 	"use strict";
 
@@ -82,12 +83,13 @@ sap.ui.define([
 	         	oModel.setProperty("/Phones", aPhone);
 				this._getDialog().close();
 			} else {
-				MessageBox.error(
+				MessageToast.show(thisView.getModel("i18n").getProperty("msgError"));
+				/*MessageBox.error(
 					thisView.getModel("i18n").getProperty("msgError"),
 					{
 						title: thisView.getModel("i18n").getProperty("error"),
 						actions: sap.m.MessageBox.Action.OK
-					});
+					});*/
 			}			
 		},
 

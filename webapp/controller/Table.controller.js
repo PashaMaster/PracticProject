@@ -12,6 +12,10 @@ sap.ui.define([
    
    "use strict";
 
+   var upPhone;
+   var index;
+   var sPath;
+
    return Controller.extend("sap.ui.iba.practic.controller.Table", {
    	
       onInit : function () {
@@ -70,53 +74,27 @@ sap.ui.define([
             }
          }
       },
+      
+      onDetailUpdate : function (oEvent) {
+         
+         var sPath = oEvent.getSource().getBindingContext("phone").sPath;
+         //this.getOwnerComponent().updateDialog.onOpenDialog(this.getView(), sPath, this.getOwnerComponent(), true);
+         this.setState(true);
+         this.onOpenDialog(sPath);
+         
+      },      
 
       onUpdate : function (oEvent) {
-       
-         var sPath=oEvent.getSource().getParent().getBindingContext("phone").sPath;
-         this.getOwnerComponent().updateDialog.onOpenDialog(this.getView(), sPath, this.getOwnerComponent());
          
+         var sPath = oEvent.getSource().getBindingContext("phone").sPath;
+         this.setState(false);
+         this.onOpenDialog(sPath);
       },
 
       onDelete: function (oEvent) {
         
-         var oModel = this.getOwnerComponent().getModel("phone");
-         var aPhone = oModel.getProperty("/Phones");
          var sPath=oEvent.getSource().getParent().getBindingContext("phone").sPath;                  
-         var index = sPath.split('/');
-         aPhone.splice(index[2], 1);
-
-         var i18n = this.getView().getModel("i18n");
-
-         var dialog = new Dialog({
-            title: i18n.getProperty("delete"),
-            type: 'Message',
-            state: 'Warning',
-            content: new Text({
-               text: i18n.getProperty("messange")
-            }),
-            beginButton: new Button({
-               type: 'Accept',
-               text: i18n.getProperty("ok"),
-               press: function () {
-
-                  oModel.setProperty("/Phones", aPhone);
-                  dialog.close();
-               }
-            }),
-            endButton: new Button({
-               type: 'Accept',
-               text: i18n.getProperty("cancel"),
-               press: function () {
-                  dialog.close();
-               }
-            }),
-            afterClose: function() {
-               dialog.destroy();
-            }
-         });
-
-         dialog.open();
+         this.onDeleteAndCloseDialog(sPath);
       },
      
       onCreate : function (oEvent) {
@@ -143,6 +121,126 @@ sap.ui.define([
       onNavBack: function (oEvent) {
 
          this.getOwnerComponent().getRouter().navTo("menu", {}, true);
+      },
+
+      _getDialog : function () {
+         
+         if (!this._oDialog) {
+         
+            this._oDialog = sap.ui.xmlfragment("sap.ui.iba.practic.view.UpdateDialog", this);
+         }
+         return this._oDialog;
+      },
+
+      onOpenDialog : function (sPath) {
+         
+         this.sPath = sPath;
+         this.openDialog();
+         upPhone = this.getView().getModel("phone").getProperty(sPath);
+         this.getView().setModel(new JSONModel(this.getView().getModel("phone").getProperty(sPath)), "upPhone");
+         index = sPath.split('/');
+      },
+
+      openDialog : function () {
+         
+         var oDialog = this._getDialog();
+         this.getView().addDependent(oDialog);
+         oDialog.open();   
+      },    
+
+      setState : function (state) {
+
+         var state = new JSONModel({
+             active : state
+         });
+         this.getOwnerComponent().setModel(state, "state");
+       },            
+
+      onButtonGreen : function () {
+
+         if (this.getOwnerComponent().getModel("state").getData().active) {
+            this.setState(false);
+         }
+         else {
+            this.onUpdateAndCloseDialog();   
+         }
+      },      
+
+      onButtonRed : function () {
+
+         if (this.getOwnerComponent().getModel("state").getData().active) {
+            
+            this.onDeleteAndCloseDialog(this.sPath)
+         }
+         else {
+            this.setState(true);
+         }
+      },
+
+      onUpdateAndCloseDialog : function() {
+         
+         var oModel = this.getOwnerComponent().getModel("phone");
+         var aPhone = oModel.getProperty("/Phones");
+         var phone = this.getView().getModel("upPhone");
+         var updatedPhone = {
+               ID : phone.getProperty("/ID"),
+               Mark: phone.getProperty("/Mark"),
+               Model : phone.getProperty("/Model"),
+               Operating_system : phone.getProperty("/Operating_system"),
+               Version : phone.getProperty("/Version"),
+               Colors : phone.getProperty("/Colors"),
+               Price: phone.getProperty("/Price")   
+            };
+         oModel.setProperty("/Phones/"+index[2], updatedPhone);
+         this.onCloseDialog();
+      },
+
+      onCloseDialog : function () {
+
+         this._getDialog().close();          
+         this.setState(true);
+      },
+
+      onDeleteAndCloseDialog : function(sPath) {
+         
+         var oModel = this.getOwnerComponent().getModel("phone");
+         var aPhone = oModel.getProperty("/Phones");
+         
+         var index = sPath.split('/');
+         aPhone.splice(index[2], 1);
+
+         var i18n = this.getView().getModel("i18n");
+
+         var stateClose=true;
+         var dialog = new Dialog({
+            title: i18n.getProperty("delete"),
+            type: 'Message',
+            state: 'Warning',
+            content: new Text({
+               text: i18n.getProperty("messange")
+            }),
+            beginButton: new Button({
+               type: 'Accept',
+               text: i18n.getProperty("okDelete"),
+               press: function () {
+                  oModel.setProperty("/Phones", aPhone);
+                  this.onCloseDialog();
+                  dialog.close();
+               }.bind(this)
+            }),
+            endButton: new Button({
+               type: 'Reject',
+               text: i18n.getProperty("cancel"),
+               press: function () {
+                  dialog.close();
+               }
+            }),
+            afterClose: function() {
+               dialog.destroy();
+            }
+         });
+
+         dialog.open();
       }
    });
 });
